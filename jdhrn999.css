@@ -1,0 +1,50 @@
+/* JDHRN999 Custom DualSense Overlay */
+
+body {
+  background: transparent;
+  margin: 0;
+  overflow: hidden;
+}
+
+/* Controller base */
+.controller.xbox {
+  background: url("https://i.imgur.com/fJIyBwn.png"); /* keep base */
+  filter: drop-shadow(0 0 25px #00ffcc);
+}
+
+/* Add channel name */
+.controller::after {
+  content: "JDHRN999";
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 32px;
+  font-weight: bold;
+  color: #00ffcc;
+  text-shadow: 0 0 15px #00ffcc;
+  font-family: Arial, sans-serif;
+}
+
+/* Buttons glow when pressed */
+.button.pressed {
+  filter: brightness(1.5) drop-shadow(0 0 10px #00ffcc);
+}
+
+/* Sticks glow */
+.stick {
+  filter: drop-shadow(0 0 8px #00ffcc);
+}
+
+/* Triggers */
+.trigger {
+  background: linear-gradient(180deg, #00ffcc, #003333);
+}
+
+/* Optional: background panel */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(0,255,204,0.15), transparent 70%);
+}
