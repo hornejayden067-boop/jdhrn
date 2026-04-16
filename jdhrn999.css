@@ -1,45 +1,49 @@
-/* Make sure we're targeting PS5 */
+/* Base controller (PS5 / DualSense style) */
 .controller.ds5 {
-  position: relative;
+  background: url("https://i.imgur.com/9GQZ6qF.png"); /* DualSense base */
+  filter: grayscale(100%) brightness(0.8);
 }
 
-/* Grey controller base */
-.controller.ds5 {
-  filter: grayscale(100%) brightness(0.75);
-}
-
-/* Cherry blossom overlay (fixed layering) */
+/* Grey overlay tint */
 .controller.ds5::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: url("https://i.imgur.com/8w0P6wS.png");
+  background: rgba(120, 120, 120, 0.35);
+  border-radius: 20px;
+}
+
+/* Cherry blossom overlay */
+.controller.ds5::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("https://i.imgur.com/8w0P6wS.png"); /* cherry blossom texture */
   background-size: cover;
-  background-position: center;
-  opacity: 0.5;
+  opacity: 0.6;
   pointer-events: none;
 }
 
-/* Channel name (moved so it doesn't conflict) */
-.controller.ds5 .touchpad::after {
+/* Channel name */
+.controller::after {
   content: "JDHRN999";
   position: absolute;
-  top: -10px;
+  top: 18px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
   color: #ffb7c5;
   text-shadow: 0 0 10px #ffb7c5;
   font-family: Arial, sans-serif;
 }
 
-/* Button glow */
+/* Buttons (soft pink glow when pressed) */
 .button.pressed {
-  filter: brightness(1.5) drop-shadow(0 0 10px #ffb7c5);
+  filter: brightness(1.4) drop-shadow(0 0 8px #ffb7c5);
 }
 
-/* Stick glow */
+/* Analog sticks */
 .stick {
   filter: drop-shadow(0 0 6px #ffb7c5);
 }
@@ -49,7 +53,7 @@
   background: linear-gradient(180deg, #ffb7c5, #6b4a52);
 }
 
-/* Soft background glow */
+/* Background glow */
 body::before {
   content: "";
   position: absolute;
