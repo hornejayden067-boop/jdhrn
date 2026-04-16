@@ -1,50 +1,62 @@
-/* JDHRN999 Custom DualSense Overlay */
-
-body {
-  background: transparent;
-  margin: 0;
-  overflow: hidden;
+/* Base controller (PS5 / DualSense style) */
+.controller.ds5 {
+  background: url("https://i.imgur.com/9GQZ6qF.png"); /* DualSense base */
+  filter: grayscale(100%) brightness(0.8);
 }
 
-/* Controller base */
-.controller.xbox {
-  background: url("https://i.imgur.com/fJIyBwn.png"); /* keep base */
-  filter: drop-shadow(0 0 25px #00ffcc);
+/* Grey overlay tint */
+.controller.ds5::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(120, 120, 120, 0.35);
+  border-radius: 20px;
 }
 
-/* Add channel name */
+/* Cherry blossom overlay */
+.controller.ds5::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("https://i.imgur.com/8w0P6wS.png"); /* cherry blossom texture */
+  background-size: cover;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Channel name */
 .controller::after {
   content: "JDHRN999";
   position: absolute;
-  top: 20px;
+  top: 18px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 32px;
+  font-size: 28px;
   font-weight: bold;
-  color: #00ffcc;
-  text-shadow: 0 0 15px #00ffcc;
+  color: #ffb7c5;
+  text-shadow: 0 0 10px #ffb7c5;
   font-family: Arial, sans-serif;
 }
 
-/* Buttons glow when pressed */
+/* Buttons (soft pink glow when pressed) */
 .button.pressed {
-  filter: brightness(1.5) drop-shadow(0 0 10px #00ffcc);
+  filter: brightness(1.4) drop-shadow(0 0 8px #ffb7c5);
 }
 
-/* Sticks glow */
+/* Analog sticks */
 .stick {
-  filter: drop-shadow(0 0 8px #00ffcc);
+  filter: drop-shadow(0 0 6px #ffb7c5);
 }
 
 /* Triggers */
 .trigger {
-  background: linear-gradient(180deg, #00ffcc, #003333);
+  background: linear-gradient(180deg, #ffb7c5, #6b4a52);
 }
 
-/* Optional: background panel */
+/* Background glow */
 body::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle, rgba(0,255,204,0.15), transparent 70%);
+  background: radial-gradient(circle, rgba(255,183,197,0.15), transparent 70%);
 }
